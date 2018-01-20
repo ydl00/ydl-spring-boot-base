@@ -7,6 +7,7 @@ import cn.ydl.base.springboot.service.HelloService;
 import cn.ydl.base.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,7 +39,7 @@ public class UserAction {
 
 
     @RequestMapping("add")
-    public String  add() {
+    public String  add(Model model) {
 
         User user = new User();
         user.setId((int) (Math.random()*Integer.MAX_VALUE));
@@ -47,7 +48,7 @@ public class UserAction {
         userService.add(user);
 
         System.out.println(user.getId());
-
+        model.addAttribute("user", user);
         return "index";
     }
 

@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
 
+<p >单个</p>
+<div>
+    <p>姓名：<span th:text="${user.username}">这些天</span></p>
+    <p>年龄：<span th:text="${user.password}">25</span></p>
+</div>
+<br/>
+<p >集合</p>
+<div th:if="${not #lists.isEmpty(personList) }">
+
+    <div th:each="person:${personList}">
+        <p>姓名：<span th:text="${person.name}" >这些天</span></p>
+        <p>年龄：<span th:text="${person.age}">25</span></p>
+    </div>
+</div>
 </body>
 </html>
