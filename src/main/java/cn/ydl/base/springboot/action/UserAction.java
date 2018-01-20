@@ -8,6 +8,7 @@ import cn.ydl.base.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,13 +23,16 @@ public class UserAction {
 
 
     @RequestMapping("all")
-    public void a() {
+    @ResponseBody
+    public String a() {
         List<User> allUsers = userService.getAll();
 
         for (User allUser : allUsers) {
 
             System.out.println(allUser);
         }
+        return allUsers.toString();
+
 
     }
 
