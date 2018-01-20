@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/")
 public class UserAction {
 
@@ -34,7 +34,7 @@ public class UserAction {
 
 
     @RequestMapping("add")
-    public void add() {
+    public String  add() {
 
         User user = new User();
         user.setId((int) (Math.random()*Integer.MAX_VALUE));
@@ -44,6 +44,7 @@ public class UserAction {
 
         System.out.println(user.getId());
 
+        return "index";
     }
 
 
